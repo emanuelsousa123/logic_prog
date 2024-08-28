@@ -1,57 +1,42 @@
-op = None
+def operar(oper):
+    numeros = []
+    for x in range(2):
+        numeros.append(input(f'digite n{x+1}: ')) 
+    n1, n2 = numeros
+    if n2 == '0' and oper == '/':
+        print('Não existe divisão por 0')
+    else:
+        cal = n1 + str(oper) + n2
+        print(f'{n1} {oper} {n2} = {eval(cal)}')
 
 def menu():
-    print("CALCULADORA PYTHON")
-    print("Escolha uma operação:\n")
-    print("0. Encerrar programa")
-    print("1. Soma")
-    print("2. Subtração")
-    print("3. Multiplicação")
-    print("4. Divisão")
-    print("5. Exponenciação")
-    print("")
+    print('''
+    CALCULADORA PYTHON
+    Escolha uma das operações.
+    
+    0. Encerrar Programa.
+    1. Soma.
+    2. Subtração.
+    3. Multiplicação.
+    4. Divisão.
+    5. Exponencial.
+       ''' )
+    
+ops = {
+    '1': '+',
+    '2': '-',
+    '3': '*',
+    '4': '/',
+    '5': '**',
+}
 
-def numeros():
-    n1 = float(input("Digite n1: "))
-    n2 = float(input("Digite n2: "))
-    return n1, n2
-
-def soma(n1, n2):
-    print(f"{n1} + {n2} = {n1+n2}")
-
-def sub(n1, n2):
-    print(f"{n1} - {n2} = {n1-n2}")
-
-def mult(n1, n2):
-    print(f"{n1} x {n2} = {n1*n2}")
-
-def div(n1, n2):
-    if n2 == 0:
-        print("Não existe divisão por 0")
-    else:
-        print(f"{n1} ÷ {n2} = {n1/n2}")
-
-def exp(n1, n2):
-    print(f"{n1} elevado a {n2} = {n1**n2}")
-
-ops = ["1","2","3","4","5"]
-
-while op != "0":
-    print("")
+op = None
+while op != '0':
     menu()
-    op = input("Operação: ")
+    op = input('Operação: ')
     if op in ops:
-        n1, n2 = numeros()
-        if (op == "1"):
-            soma(n1, n2)
-        elif (op == "2"):
-            sub(n1, n2)
-        elif (op == "3"):
-            mult(n1, n2)
-        elif (op == "4"):
-            div(n1, n2)
-        elif (op == "5"):
-            exp(n1, n2)
-    elif op != "0":
-        print("Essa opção não existe. Escolha uma das opções a partir dos seus respectivos números.")
-print("Encerrando programa...")
+        operar(ops[op])
+    elif op != '0':
+        print('Escolha uma opção válida.')
+
+print('Encerrando programa...')
