@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(143, 173, 218);
+    font-size: 30px;
+}
+
+div {
+    text-align: center;
+}
+
+.butao {
+    margin: 2px 5px;
+    font-size: 25px;
+}
